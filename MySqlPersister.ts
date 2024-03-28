@@ -250,6 +250,21 @@ export class MySqlPersister implements Persister {
         );
     }
 
+    /**
+     * Performs a SQL query inside a transaction.
+     *
+     * @param query The query string with parameter placeholders
+     * @param values The values for parameter placeholders
+     */
+    public async query(
+        query: string,
+        values ?: readonly any[]
+    ): Promise<QueryResultPair> {
+        return await this._transaction(
+            async (connection) => await this._query(connection, query, values)
+        );
+    }
+
     protected async _transaction (callback: (connection : PoolConnection) => Promise<any>) {
         if (!this._pool) throw new TypeError(`The pool was not initialized`);
         let connection : PoolConnection | undefined = undefined;
