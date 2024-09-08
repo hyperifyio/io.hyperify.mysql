@@ -1,4 +1,4 @@
-ARG MYSQL_IMAGE=mysql:8
+ARG MYSQL_IMAGE=mysql:8.0.19
 
 FROM $MYSQL_IMAGE as mysql-image
 

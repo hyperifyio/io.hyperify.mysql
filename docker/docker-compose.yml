@@ -2,18 +2,18 @@ version: '3.1'
 
 services:
 
-  fi-hg-mysql-server:
+  io-hyperify-mysql-server:
     restart: "unless-stopped"
-    container_name: fi-hg-mysql-server
+    container_name: io-hyperify-mysql-server
     platform: linux/amd64
-    image: "fi-hg-mysql-server:latest"
+    image: "io-hyperify-mysql-server:latest"
     cap_add:
     - SYS_NICE  # CAP_SYS_NICE
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        MYSQL_IMAGE: 'mysql:8'
+        MYSQL_IMAGE: 'mysql:8.0.19'
     ports:
     - "3306:3306"
     environment:
