@@ -20,7 +20,7 @@ SET character_set_client = utf8;
 CREATE TABLE `prefix_foos` (
                                   `foo_id` bigint(20) unsigned NOT NULL auto_increment,
                                   `foo_name` varchar(255) NOT NULL default '',
-                                  `foo_date` TIMESTAMP NOT NULL default CURRENT_TIMESTAMP,
+                                  `foo_date` TIMESTAMP NULL,
                                   `non_updatable` varchar(255) NOT NULL default '',
                                   PRIMARY KEY  (`foo_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
@@ -36,7 +36,7 @@ SET character_set_client = utf8;
 CREATE TABLE `prefix_bars` (
                                   `bar_id` bigint(20) unsigned NOT NULL auto_increment,
                                   `bar_name` varchar(255) NOT NULL default '',
-                                  `bar_date` TIMESTAMP NOT NULL default CURRENT_TIMESTAMP,
+                                  `bar_date` TIMESTAMP NULL,
                                   PRIMARY KEY  (`bar_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
 SET character_set_client = @saved_cs_client;
